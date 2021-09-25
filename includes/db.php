@@ -1,12 +1,10 @@
 <?php
 
-$msqli = new msqli("localhost", "root", "", "devdrawer")
-if($msqli->connect_error) {
-
-  exit("Error")
-  
+$mysqli = new mysqli("localhost", "root", "", "devdrawer");
+if($mysqli->connect_error) {
+  exit("Error");
 } else {
-  echo "Okkk"
+  echo "Okkk";
 }
 
 ?>

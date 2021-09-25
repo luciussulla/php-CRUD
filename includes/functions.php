@@ -2,26 +2,61 @@
 require('db.php');
 
 function formatCode($arr) {
+  echo 'starting formatCode <br/>';
   echo '<pre>';
   print_r($arr);
   echo '</pre>';
 }
 
 function selectAll() {
-  // prepare variables 
+  // prepare variables  
   global $mysqli;
+  if($mysqli) {
+    echo "msql ok <br/>";
+  } else {
+    echo "sthg wrong with mywxl <br/>";
+  }
+  
   $data = array();
   // perform request
   $stmt = $mysqli->prepare('SELECT * FROM employees'); 
   $stmt->execute(); // send to db
   $result = $stmt->get_result(); 
   // process request result 
-  if($result->num_rows===0) echo ('No rows');
+  if($result->num_rows===0) echo ('No rows <br/>');
+  // iteratively extract rows from result object
+  // [{id:1, name: "bo"...}, 
+  //  {}, 
+  //  {}]
   while($row = $result->fetch_assoc()) {
     $data[] = $row;
   }
   $stmt->close();
+  return $data;
 }
+
+/* select single statemtn */ 
+
+function selectSingle($id = NULL) {
+  global  $mysqli; 
+  $stmt = $mysqli->prepare('SELECT * FROM employees WHERE id = ?'); 
+  $stmt->bind_param('i', $id); 
+  $stmt->execute(); 
+  $result = $stmt->get_result(); 
+  if($result->num_rows === 0) echo ('No rows'); 
+  $row = $result->fetch_assoc(); 
+  $stmt->close(); 
+  return $row; 
+}
+
+/* insert stmt */ 
+
+function insert($fname=NULL, $lname=NULL, $phone=NULL) {
+  global $mysqli;
+  $stms = $mysqli->prepare('INSERT INTO employees 
+                            (fname, lname, phone) VALUES (?, ?, ?);  
+}
+
 
 
 ?>
