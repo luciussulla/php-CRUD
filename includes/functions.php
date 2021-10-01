@@ -12,9 +12,9 @@ function selectAll() {
   // prepare variables  
   global $mysqli;
   if($mysqli) {
-    echo "msql ok <br/>";
+    echo "mysqli connection ok <br/>";
   } else {
-    echo "sthg wrong with mywxl <br/>";
+    echo "sthg wrong with mysqli connection <br/>";
   }
   
   $data = array();
@@ -49,14 +49,24 @@ function selectSingle($id = NULL) {
   return $row; 
 }
 
-/* insert stmt */ 
-
+/* insert stmt */
 function insert($fname=NULL, $lname=NULL, $phone=NULL) {
-  global $mysqli;
-  $stms = $mysqli->prepare('INSERT INTO employees 
-                            (fname, lname, phone) VALUES (?, ?, ?);  
+  global  $mysqli;
+  $stmt = $mysqli->prepare('INSERT INTO employees (fName, lName, phone) VALUES (?, ?, ?)');
+  $stmt->bind_param('sss', $fname, $lname, $phone);
+  $stmt->execute();
+  $stmt->close();
+  header('Location: update.php?id='.$mysqli->insert_id); 
 }
 
+/* update stmt */
+function update($fname=NULL, $lname=NULL, $phone=NULL, $id) {
+  global  $mysqli;
+  $stmt = $mysqli->prepare('UPDATE employees SET fName = ?, lName = ?, phone = ? WHERE id = ?');
+  $stmt->bind_param('sssi', $fname, $lname, $phone, $id);
+  $stmt->execute();
+  if($stmt->affected_rows === 0 ) echo "No rows were updated"; 
+  $stmt->close();
+}
 
-
-?>
+?> 

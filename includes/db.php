@@ -4,7 +4,7 @@ $mysqli = new mysqli("localhost", "root", "", "devdrawer");
 if($mysqli->connect_error) {
   exit("Error");
 } else {
-  echo "Okkk";
+  echo "Db connection successful".'<br/>';
 }
 
 ?>

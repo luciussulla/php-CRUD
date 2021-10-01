@@ -1,10 +1,8 @@
 <?php 
   include('includes/functions.php');
-  if(isset($_POST['btnInsert']) {
-    insert();
-  endif;   
-  }
-
+  if(isset($_POST['btnInsert'])) :
+    insert($_POST['fname'], $_POST['lname'], $_POST['phone']);
+  endif;
 ?>
 
 <!DOCTYPE html>
@@ -21,10 +19,10 @@
     <label for="fname">First Name</label>
     <input type="text" name="fname" id="fname" value="">
 
-    <label for="lname">First Name</label>
+    <label for="lname">Last Name</label>
     <input type="text" name="lname" id="lname" value="">
 
-    <label for="phone">First Name</label>
+    <label for="phone">Phone Number</label>
     <input type="text" name="phone" id="phone" value="">
     <br/>
     <button name="btnInsert">
