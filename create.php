@@ -28,7 +28,6 @@
     <button name="btnInsert">
       Insert Record
     </button>
-
   </form>
   <?php 
 

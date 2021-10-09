@@ -24,7 +24,7 @@ function selectAll() {
   $result = $stmt->get_result(); 
   // process request result 
   if($result->num_rows===0) echo ('No rows <br/>');
-  // iteratively extract rows from result object
+  // iteratively extract rows from result array object
   // [{id:1, name: "bo"...}, 
   //  {}, 
   //  {}]
@@ -68,5 +68,16 @@ function update($fname=NULL, $lname=NULL, $phone=NULL, $id) {
   if($stmt->affected_rows === 0 ) echo "No rows were updated"; 
   $stmt->close();
 }
+
+/* delete stmt */ 
+function delete($id) {
+  global  $mysqli;
+  $stmt = $mysqli->prepare('DELETE FROM employees WHERE id = ?');
+  $stmt->bind_param('i', $id);
+  $stmt->execute();
+  $stmt->close();
+  header('Location: /crud/');
+}
+
 
 ?> 
