@@ -17,6 +17,7 @@
   <title>Document</title>
 </head>
 <body>
+  <?php include('themes/header.php') ?>
   <h1>Update</h1>
   <?php if($user!= false) : ?>
     <form action="" method="post">

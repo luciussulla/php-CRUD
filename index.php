@@ -2,6 +2,7 @@
   include('includes/functions.php');
   $allEmployees = selectAll(); 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,7 @@
   <?php include('themes/header-scripts.php') ?>
 </head>
 <body>
+  <?php include('themes/header.php') ?>
   <div class="container-fluid">
     <h1>Results of db queries below</h1>
     <table class="table datatable">
@@ -32,6 +34,10 @@
                 <td>'.$employee['lName'].'</td>
                 <td>'.$employee['fName'].'</td>
                 <td>'.$employee['phone'].'</td>
+                <td class="text-right">
+                  <a href="update.php?id='.$employee['id'].'">Update</a>
+                  <a href="delete.php?id='.$employee['id'].'">Delete</a>
+                </td>
               </tr>
             ';
           endforeach; 

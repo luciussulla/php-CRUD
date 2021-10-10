@@ -12,7 +12,7 @@ function selectAll() {
   // prepare variables  
   global $mysqli;
   if($mysqli) {
-    echo "mysqli connection ok <br/>";
+    // echo "mysqli connection ok <br/>";
   } else {
     echo "sthg wrong with mysqli connection <br/>";
   }
