@@ -12,7 +12,7 @@
       <div class="col-md-8 text-right">
           <nav>
             <ul>
-              <li><a href="/">Dashboard</a></li>
+              <li><a href="/crud/index.php">Dashboard</a></li>
               <li><a href="/crud/create.php">Create New</a></li>
               <li><?php echo $welcome ?></li>
             </ul>

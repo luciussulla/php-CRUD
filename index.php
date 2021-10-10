@@ -35,10 +35,10 @@
                 <td>'.$employee['fName'].'</td>
                 <td>'.$employee['phone'].'</td>
                 <td class="text-right">
-                  <a href="update.php?id='.$employee['id'].'">Update</a>
-                  <a href="delete.php?id='.$employee['id'].'">Delete</a>
+                  <a  href="update.php?id='.$employee['id'].'">Update</a>
+                  <a class="text-danger" href="delete.php?id='.$employee['id'].'" onClick="return confirm(\'are you sure?\')">Delete</a>
                 </td>
-              </tr>
+              </tr>  
             ';
           endforeach; 
         ?>

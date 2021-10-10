@@ -18,26 +18,42 @@
 </head>
 <body>
   <?php include('themes/header.php') ?>
-  <h1>Update</h1>
-  <?php if($user!= false) : ?>
-    <form action="" method="post">
-      <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
-      <label for="fname">First Name</label>
-      <input type="text" name="fname" id="fname" value="<?php echo $user['fName'] ?>">
 
-      <label for="lname">Last Name</label>
-      <input type="text" name="lname" id="lname" value="<?php echo $user['lName'] ?>">
+    <div class="container-fluid">
+      <?php if($user!= false) : ?>
+        <h1 class="fas fa-pen"> Update</h1>
+        <form action="" method="post">
+          <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
 
-      <label for="phone">Phone Nuber</label>
-      <input type="text" name="phone" id="phone" value="<?php echo $user['phone'] ?>">
-      <br/>
-      <button name="btnUpdate">
-        Upadte Record
-      </button>
-    </form>
-  <?php else:   ?>
-    <h1>User is not set</h1>
-  <?php endif; ?>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="fname">First Name</label>
+              <input class="form-control" type="text" name="fname" id="fname" value="<?php echo $user['fName'] ?>">
+            </div>
+            <div class="col-md-6">
+              <label for="lname">Last Name</label>
+              <input class="form-control" type="text" name="lname" id="lname" value="<?php echo $user['lName'] ?>">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label for="phone">Phone Nuber</label>
+              <input class="form-control" type="text" name="phone" id="phone" value="<?php echo $user['phone'] ?>">
+            </div>
+          </div>
+
+          <br/>
+          <button name="btnUpdate" class="btn btn-primary">
+            Upadte Record
+          </button>
+
+        </form>
+      <?php else:   ?>
+        <h1>User is not set</h1>
+      <?php endif; ?>
+    </div>  
+
   <?php include('themes/footer-scripts.php') ?>
 </body>
 </html>
