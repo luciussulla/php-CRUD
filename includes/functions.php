@@ -29,13 +29,13 @@ function selectAll() {
   //  {}, 
   //  {}]
   while($row = $result->fetch_assoc()) {
+    // fetch assoc means get object from inside the $result array. The function remembers which one was last extracted. 
     $data[] = $row;
   }
   $stmt->close();
   return $data;
 }
-
-/* select single statemtn */ 
+/* select single statement */ 
 
 function selectSingle($id = NULL) {
   global  $mysqli; 
@@ -78,6 +78,5 @@ function delete($id) {
   $stmt->close();
   header('Location: /crud/');
 }
-
 
 ?> 

@@ -1,8 +1,8 @@
 <?php
-  $user = selectSingle(1); 
-  $welcome = "Welcome ".$user['fName']; 
-
+  $LoggedInUser = selectSingle(1); 
+  $welcome = "Welcome ".$LoggedInUser['fName']; 
 ?>
+
 <header>
   <div class="container-fluid">
     <div class="row">

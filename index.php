@@ -35,8 +35,9 @@
                 <td>'.$employee['fName'].'</td>
                 <td>'.$employee['phone'].'</td>
                 <td class="text-right">
-                  <a  href="update.php?id='.$employee['id'].'">Update</a>
-                  <a class="text-danger" href="delete.php?id='.$employee['id'].'" onClick="return confirm(\'are you sure?\')">Delete</a>
+                  <a  href="update.php?id='.$employee['id'].'"><i class="fa fa-pen-square fa-2x"></i></a>
+                  <a class="text-danger" href="delete.php?id='.$employee['id'].'" onClick="return confirm(\'are you sure?\')"><i class="fa fa-trash fa-2x"></i></a>
+                       
                 </td>
               </tr>  
             ';
